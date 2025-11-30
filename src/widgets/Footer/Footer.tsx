@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { Instagram } from "lucide-react";
 import { navigation } from "@/data/navigation";
-import { contactInfo } from "@/data/contactInfo";
+import { companyInfo, contactInfo } from "@/data/contactInfo";
+import { footerInfo } from "@/data/footer";
 
 // WhatsApp icon component
 const WhatsAppIcon = ({ size = 20 }: { size?: number }) => (
@@ -34,8 +35,7 @@ export const Footer = () => {
               </span>
             </Link>
             <p className="text-sm text-muted-foreground max-w-xs">
-              Premium plant solutions for modern workspaces. Transform your environment
-              with our expert greenery designs.
+              {footerInfo.description}
             </p>
           </div>
 
@@ -47,12 +47,12 @@ export const Footer = () => {
             <ul className="space-y-3">
               {navigation.map((item) => (
                 <li key={item.label}>
-                  <Link
-                    to={item.href}
+                  <a
+                    href={item.href}
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {item.label}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -92,24 +92,26 @@ export const Footer = () => {
 
         {/* Bottom bar */}
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted-foreground">
-            © {currentYear} GreenSpace. All rights reserved.
+          {/* LEFT — COPYRIGHT */}
+          <p className="text-xs text-muted-foreground text-center md:text-left">
+            © {currentYear} {companyInfo.name}. All rights reserved.
           </p>
-          <div className="flex items-center gap-6">
-            <Link
-              to="/"
-              className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+
+          {/* RIGHT — CREDIT */}
+          <p className="text-xs text-muted-foreground text-center md:text-right">
+            Website designed & developed by{" "}
+            <a
+              href="https://404lab.tech"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:text-primary/80 transition-colors"
             >
-              Privacy Policy
-            </Link>
-            <Link
-              to="/"
-              className="text-xs text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Terms of Service
-            </Link>
-          </div>
+              404Lab
+            </a>.
+          </p>
         </div>
+
+
       </div>
     </footer>
   );

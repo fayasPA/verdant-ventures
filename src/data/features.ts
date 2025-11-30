@@ -7,34 +7,36 @@ export interface Feature {
 export interface FeaturesInfo {
   title: string;
   subtitle: string;
-  // description: string;
 }
+
+export const featuresInfo: FeaturesInfo = {
+  title: "4 Reasons Why Buying Exotic Produce From Us is",
+  subtitle: "Fresh, Easy, and Reliable",
+};
 
 export const features: Feature[] = [
   {
     id: 1,
-    title: "Quality",
-    description: "We use only the best plants that maintain their appearance for many years.",
+    title: "Premium Quality",
+    description:
+      "We source only the freshest and finest exotic vegetables and fruits, hand-picked for superior taste and nutrition.",
   },
   {
     id: 2,
-    title: "Speed",
-    description: "We value your time and guarantee fast results while maintaining high quality.",
+    title: "Fast Delivery",
+    description:
+      "Your orders are packed with care and delivered quickly to preserve freshness and ensure peak quality on arrival.",
   },
   {
     id: 3,
-    title: "Variety",
-    description: "We offer a wide selection of designs tailored to your preferences and budget.",
+    title: "Wide Selection",
+    description:
+      "Choose from a diverse range of rare and exotic produce sourced from trusted farms around the world.",
   },
   {
     id: 4,
-    title: "Accessibility",
-    description: "Ready to implement a project of any complexity in any corner of the country.",
+    title: "Trusted & Convenient",
+    description:
+      "We make ordering simple and reliable, serving both households and businesses with consistent quality you can count on.",
   },
 ];
-
-export const featuresInfo: FeaturesInfo = {
-  title: "4 Reasons Why Working With Us is",
-  subtitle: "Convenient and Reliable",
-  // description: "We use only the best plants that maintain their appearance for many years.",
-};

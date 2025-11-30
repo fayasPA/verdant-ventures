@@ -35,7 +35,7 @@ export const AboutSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-lg text-muted-foreground leading-relaxed max-w-md lg:justify-self-end"
+            className="text-lg text-foreground/70 leading-relaxed max-w-md lg:justify-self-end"
           >
             {aboutInfo.subtitle}
           </motion.p>

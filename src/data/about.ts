@@ -1,34 +1,35 @@
 import aboutBg from "@/assets/about-bg.jpg";
-import officePlants from "@/assets/office-plants.jpg";
+import exoticProduce from "@/assets/office-plants.jpg"; // replace with actual image
+
 export interface AboutInfo {
-    title: string;
-    subtitle: string;
-    image: string;
-    cardImage: string;
-    stats: {
-        value: string;
-        label: string;
-    }[];
-  }
-  
-  export const aboutInfo: AboutInfo = {
-    title: "Transforming Offices into Comfortable Work Zones",
-    subtitle: "Even a business environment should be pleasant, so we create unique projects that promote productive work for your employees. Our premium plants and expert designs transform any workspace into a thriving oasis.",
-    image: aboutBg,
-    cardImage: officePlants,
-    stats: [
-      {
-        value: "10+",
-        label: "Years on Market",
-      },
-      {
-        value: "500+",
-        label: "Completed Projects",
-      },
-      {
-        value: "99%",
-        label: "Satisfied Clients",
-      },
-    ],
-  };
-  
+  title: string;
+  subtitle: string;
+  image: string;
+  cardImage: string;
+  stats: {
+    value: string;
+    label: string;
+  }[];
+}
+
+export const aboutInfo: AboutInfo = {
+  title: "Delivering Premium Exotic Vegetables & Fruits",
+  subtitle:
+    "We provide the finest selection of exotic produce sourced from trusted farms around the world. Freshness, quality, and authenticity define everything we do—ensuring every delivery meets the highest standards for homes, restaurants, and retailers.",
+  image: aboutBg,
+  cardImage: exoticProduce,
+  stats: [
+    {
+      value: "10+",
+      label: "Years of Fresh Supply",
+    },
+    {
+      value: "150+",
+      label: "Exotic Varieties",
+    },
+    {
+      value: "99%",
+      label: "Happy Customers",
+    },
+  ],
+};

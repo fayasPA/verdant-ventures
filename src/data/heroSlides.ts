@@ -11,25 +11,26 @@ export interface HeroSlide {
 export const heroSlides: HeroSlide[] = [
   {
     id: 1,
-    title: "Greening Office Spaces",
-    subtitle: "Create a cozy working environment with our premium green decor",
+    title: "Fresh Exotic Vegetables Delivered",
+    subtitle: "Sourced from trusted farms and delivered at peak freshness for your home or business.",
     image: "hero-bg-1",
-    productImage: "plant-product-1",
+    productImage: "plant-product-1", // replace with veggie image
     // ctaLabel: "View Catalog",
     // ctaLink: "/contact",
   },
   {
     id: 2,
-    title: "Premium Plant Collections",
-    subtitle: "Transform your workspace into a lush oasis of productivity and calm",
+    title: "Premium Imported Fruits & Rare Produce",
+    subtitle: "Discover a world of unique flavors with our hand-picked selection of high-quality exotic fruits.",
     image: "hero-bg-2",
-    productImage: "plant-product-2",
-    // ctaLabel: "Explore Plants",
+    productImage: "plant-product-2", // replace with actual fruit image
+    // ctaLabel: "View Catalog",
     // ctaLink: "/contact",
   },
 ];
 
+
 export const heroTexts = {
   contactBtn: "/contact",
-  contactBtnText: "Contact Us",
+  contactBtnText: "Order Now",
 };

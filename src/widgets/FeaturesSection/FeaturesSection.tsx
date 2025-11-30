@@ -13,7 +13,7 @@ export const FeaturesSection = () => {
       id="features"
       backgroundImage={featuresBg}
       overlayOpacity={0.85}
-      className="py-20 md:py-32"
+      className="py-10 md:py-32"
     >
       {/* Header */}
       <motion.div
