@@ -13,10 +13,13 @@
 @layer base {
   :root {
     /* Base colors - Dark forest theme */
+    --redd: 0 84% 60%;
     --background: 160 20% 4%;
     --foreground: 0 0% 100%;
 
     /* Card with glass effect */
+    --card1: 150, 15%, 9%;
+
     --card: 160 15% 8%;
     --card-foreground: 0 0% 98%;
 

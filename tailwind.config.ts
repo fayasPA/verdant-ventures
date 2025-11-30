@@ -14,6 +14,8 @@ export default {
     },
     extend: {
       colors: {
+        redd: "hsl(var(--redd))",
+        card1: "hsl(var(--card1))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

@@ -99,7 +99,7 @@ export const HeroCarousel = () => {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="flex justify-center mt-6 lg:mt-0"
           >
-            <div className="relative w-full max-w-[280px] sm:max-w-[320px] md:max-w-sm">
+            <div className="relative w-full max-w-[280px] sm:max-w-[320px] md:max-w-xs">
               <GlassCard
                 className="
                   w-full 
@@ -107,6 +107,8 @@ export const HeroCarousel = () => {
                   rounded-2xl
                   relative z-0
                   overflow-visible
+                  bg-card
+                  border-none
                 "
                 hover={false}
               >
@@ -148,9 +150,8 @@ export const HeroCarousel = () => {
                 <button
                   key={index}
                   onClick={() => setActiveSlide(index)}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    index === activeSlide ? "w-6 bg-primary" : "w-2 bg-white/40"
-                  }`}
+                  className={`h-2 rounded-full transition-all duration-300 ${index === activeSlide ? "w-6 bg-primary" : "w-2 bg-white/40"
+                    }`}
                 />
               ))}
             </div>
