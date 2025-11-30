@@ -8,6 +8,11 @@ export interface ContactInfo {
   };
 }
 
+export interface CompanyInfo {
+  name: string;
+  address: string;
+}
+
 export const contactInfo: ContactInfo = {
   phone: "+1 (555) 123-4567",
   email: "hello@greenspace.com",
@@ -16,4 +21,9 @@ export const contactInfo: ContactInfo = {
     instagram: "https://instagram.com/greenspace",
     whatsapp: "https://wa.me/15551234567",
   },
+};
+
+export const companyInfo: CompanyInfo = {
+  name: "GreenSpace",
+  address: "123 Garden Street, New York, NY 10001",
 };

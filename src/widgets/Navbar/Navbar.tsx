@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { navigation } from "@/data/navigation";
 import { useUIStore } from "@/shared/store/uiStore";
 import { Button } from "@/components/ui/button";
+import { companyInfo } from "@/data/contactInfo";
 
 /**
  * Navbar - Premium transparent navbar that darkens on scroll
@@ -57,11 +58,12 @@ export const Navbar = () => {
             >
               <span className="text-2xl md:text-3xl font-display font-bold group-hover:text-primary transition-colors">
                 Green<span className="text-primary">Space</span>
+                {/* {companyInfo.name} */}
               </span>
             </Link>
 
             {/* Desktop Navigation */}
-            <ul className="hidden md:flex items-center gap-8">
+            <ul className="pl-16 hidden md:flex items-center justify-start w-full gap-8">
               {navigation.map((item) => (
                 <li key={item.label}>
                   <Link
