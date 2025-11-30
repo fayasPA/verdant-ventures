@@ -4,6 +4,12 @@ export interface Feature {
   description: string;
 }
 
+export interface FeaturesInfo {
+  title: string;
+  subtitle: string;
+  // description: string;
+}
+
 export const features: Feature[] = [
   {
     id: 1,
@@ -26,3 +32,9 @@ export const features: Feature[] = [
     description: "Ready to implement a project of any complexity in any corner of the country.",
   },
 ];
+
+export const featuresInfo: FeaturesInfo = {
+  title: "4 Reasons Why Working With Us is",
+  subtitle: "Convenient and Reliable",
+  // description: "We use only the best plants that maintain their appearance for many years.",
+};
