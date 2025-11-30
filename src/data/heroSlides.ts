@@ -4,8 +4,8 @@ export interface HeroSlide {
   subtitle: string;
   image: string;
   productImage: string;
-  ctaLabel: string;
-  ctaLink: string;
+  // ctaLabel: string;
+  // ctaLink: string;
 }
 
 export const heroSlides: HeroSlide[] = [
@@ -15,8 +15,8 @@ export const heroSlides: HeroSlide[] = [
     subtitle: "Create a cozy working environment with our premium green decor",
     image: "hero-bg-1",
     productImage: "plant-product-1",
-    ctaLabel: "View Catalog",
-    ctaLink: "/contact",
+    // ctaLabel: "View Catalog",
+    // ctaLink: "/contact",
   },
   {
     id: 2,
@@ -24,7 +24,12 @@ export const heroSlides: HeroSlide[] = [
     subtitle: "Transform your workspace into a lush oasis of productivity and calm",
     image: "hero-bg-2",
     productImage: "plant-product-2",
-    ctaLabel: "Explore Plants",
-    ctaLink: "/contact",
+    // ctaLabel: "Explore Plants",
+    // ctaLink: "/contact",
   },
 ];
+
+export const heroTexts = {
+  contactBtn: "/contact",
+  contactBtnText: "Contact Us",
+};

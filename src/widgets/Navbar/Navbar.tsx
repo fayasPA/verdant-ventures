@@ -55,7 +55,7 @@ export const Navbar = () => {
               to="/" 
               className="flex items-center gap-2 group"
             >
-              <span className="text-2xl md:text-3xl font-display font-bold text-foreground group-hover:text-primary transition-colors">
+              <span className="text-2xl md:text-3xl font-display font-bold group-hover:text-primary transition-colors">
                 Green<span className="text-primary">Space</span>
               </span>
             </Link>
@@ -70,7 +70,7 @@ export const Navbar = () => {
                       "text-sm font-medium animated-underline transition-colors",
                       location.pathname === item.href
                         ? "text-primary"
-                        : "text-muted-foreground hover:text-foreground"
+                        : "text-foreground/80 hover:text-foreground"
                     )}
                   >
                     {item.label}
@@ -130,7 +130,7 @@ export const Navbar = () => {
                       "text-3xl font-display font-semibold transition-colors",
                       location.pathname === item.href
                         ? "text-primary"
-                        : "text-muted-foreground hover:text-foreground"
+                        : "text-foreground/80 hover:text-foreground"
                     )}
                     onClick={closeMobileMenu}
                   >
