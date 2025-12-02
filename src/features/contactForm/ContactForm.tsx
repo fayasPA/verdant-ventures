@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { GlassCard } from "@/shared/ui/GlassCard";
 import { toast } from "sonner";
+import { contactPageInfo } from "@/data/contactInfo";
 
 interface FormData {
   fullName: string;
@@ -64,7 +65,7 @@ export const ContactForm = () => {
               id="fullName"
               name="fullName"
               type="text"
-              placeholder="Enter your name"
+              placeholder={contactPageInfo.formPlaceholder.fullName}
               value={formData.fullName}
               onChange={handleChange}
               required
@@ -81,7 +82,7 @@ export const ContactForm = () => {
               id="phone"
               name="phone"
               type="tel"
-              placeholder="Enter your phone number"
+              placeholder={contactPageInfo.formPlaceholder.phone}
               value={formData.phone}
               onChange={handleChange}
               required
@@ -97,7 +98,7 @@ export const ContactForm = () => {
             <Textarea
               id="message"
               name="message"
-              placeholder="Tell us about your project..."
+              placeholder={contactPageInfo.formPlaceholder.message}
               value={formData.message}
               onChange={handleChange}
               required

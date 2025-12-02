@@ -4,7 +4,7 @@ import { Navbar } from "@/widgets/Navbar/Navbar";
 import { Footer } from "@/widgets/Footer/Footer";
 import { Section } from "@/shared/ui/Section";
 import { ContactForm } from "@/features/contactForm/ContactForm";
-import { contactInfo } from "@/data/contactInfo";
+import { contactInfo, contactPageInfo } from "@/data/contactInfo";
 import featuresBg from "@/assets/features-bg.jpg";
 
 // WhatsApp icon component
@@ -43,11 +43,10 @@ const ContactPage = () => {
           >
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground">
-                Let's Discuss Your Project
+                {contactPageInfo.title}
               </h1>
               <p className="text-lg text-muted-foreground max-w-md">
-                Get in touch with us to transform your space with premium greenery 
-                and create an inspiring environment.
+                {contactPageInfo.description}
               </p>
             </div>
 

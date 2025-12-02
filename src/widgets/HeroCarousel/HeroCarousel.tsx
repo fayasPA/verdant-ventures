@@ -2,12 +2,11 @@ import { useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
-import { heroSlides } from "@/data/heroSlides";
+import { heroSlides, heroTexts } from "@/data/heroSlides";
 import { useUIStore } from "@/shared/store/uiStore";
 import { Button } from "@/components/ui/button";
 import { GlassCard } from "@/shared/ui/GlassCard";
 
-// Import background images
 import heroBg1 from "@/assets/hero-bg-1.jpg";
 import heroBg2 from "@/assets/hero-bg-2.jpg";
 import plantProduct1 from "@/assets/plant-product-1.png";
@@ -23,18 +22,13 @@ const products: Record<string, string> = {
   "plant-product-2": plantProduct2,
 };
 
-/**
- * HeroCarousel - Full-screen hero carousel with premium transitions
- */
 export const HeroCarousel = () => {
   const { activeSlide, setActiveSlide, nextSlide, prevSlide, setTotalSlides } = useUIStore();
 
-  // Set total slides on mount
   useEffect(() => {
     setTotalSlides(heroSlides.length);
   }, [setTotalSlides]);
 
-  // Auto-play carousel
   useEffect(() => {
     const interval = setInterval(nextSlide, 6000);
     return () => clearInterval(interval);
@@ -47,7 +41,7 @@ export const HeroCarousel = () => {
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      {/* Background Images */}
+      {/* Background */}
       <AnimatePresence mode="wait">
         <motion.div
           key={activeSlide}
@@ -58,7 +52,7 @@ export const HeroCarousel = () => {
           className="absolute inset-0"
         >
           <div
-            className="absolute inset-0 bg-cover-center"
+            className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${backgrounds[currentSlide.image]})` }}
           />
           <div className="absolute inset-0 bg-black/70" />
@@ -66,105 +60,120 @@ export const HeroCarousel = () => {
       </AnimatePresence>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 md:px-6 lg:px-8 h-full flex items-center">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full pt-20">
-          {/* Left side - Text content */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={`text-${activeSlide}`}
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 50 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="space-y-6 md:space-y-8"
-            >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold text-foreground leading-tight text-shadow">
-                {currentSlide.title}
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-lg">
-                {currentSlide.subtitle}
-              </p>
-              <Button variant="hero" size="xl" asChild className="group">
+      <div className="relative z-10 container mx-auto px-4 h-full flex items-center pt-14 md:pt-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 w-full items-center">
+
+          {/* LEFT — TEXT */}
+          <motion.div
+            key={`text-${activeSlide}`}
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 40 }}
+            transition={{ duration: 0.6 }}
+            className="space-y-5 md:space-y-8 text-center lg:text-left"
+          >
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground leading-tight">
+              {currentSlide.title}
+            </h1>
+
+            <p className="text-base md:text-lg text-foreground/70 max-w-md mx-auto lg:mx-0">
+              {currentSlide.subtitle}
+            </p>
+
+            {/* <div className="flex justify-center lg:justify-start">
+              <Button variant="hero" size="lg" asChild className="group">
                 <Link to={currentSlide.ctaLink}>
                   {currentSlide.ctaLabel}
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
-            </motion.div>
-          </AnimatePresence>
+            </div> */}
+          </motion.div>
 
-          {/* Right side - Product card */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={`product-${activeSlide}`}
-              initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -50, scale: 0.9 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-              className="hidden lg:flex justify-center lg:justify-end"
-            >
-              <GlassCard 
-                className="max-w-sm animate-float"
+          {/* RIGHT — PRODUCT CARD (Mobile Optimized) */}
+          <motion.div
+            key={`product-${activeSlide}`}
+            initial={{ opacity: 0, y: 40, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -40, scale: 0.9 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="flex justify-center mt-6 lg:mt-0"
+          >
+            <div className="relative w-full max-w-[280px] sm:max-w-[320px] md:max-w-xs">
+              <GlassCard
+                className="
+                  w-full 
+                  p-4 sm:p-5 md:p-6 
+                  rounded-2xl
+                  relative z-0
+                  overflow-visible
+                  bg-card
+                  border-none
+                "
                 hover={false}
               >
-                <div className="relative">
+                {/* Image positioned to overflow top of card */}
+                <div className="absolute -top-[30%] sm:-top-[35%] md:-top-[40%] left-1/2 -translate-x-1/2 z-10 w-full px-4">
                   <img
                     src={products[currentSlide.productImage]}
-                    alt="Featured plant"
-                    className="w-full h-64 object-contain"
+                    alt="Featured product"
+                    className="
+                      object-contain
+                      w-full
+                      max-h-[180px] sm:max-h-[220px] md:max-h-[250px]
+                    "
                   />
                 </div>
-                <div className="mt-4 text-center">
-                  <Button variant="hero" size="lg" className="w-full group" asChild>
-                    <Link to={currentSlide.ctaLink}>
-                      {currentSlide.ctaLabel}
+
+                <div className="mt-12 sm:mt-14 pt-16 sm:pt-20 md:pt-24">
+                  <Button variant="hero" size="lg" asChild className="w-full group">
+                    <Link to={heroTexts.contactBtn}>
+                      {heroTexts.contactBtnText}
                       <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </Button>
                 </div>
               </GlassCard>
-            </motion.div>
-          </AnimatePresence>
+            </div>
+          </motion.div>
         </div>
       </div>
 
-      {/* Navigation Controls */}
-      <div className="absolute bottom-8 left-0 right-0 z-20">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8">
+      {/* NAVIGATION */}
+      <div className="absolute bottom-6 left-0 right-0 z-20">
+        <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
-            {/* Slide indicators */}
-            <div className="flex items-center gap-3">
+
+            {/* Indicators */}
+            <div className="flex items-center gap-2">
               {heroSlides.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setActiveSlide(index)}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    index === activeSlide
-                      ? "w-8 bg-primary"
-                      : "w-2 bg-white/30 hover:bg-white/50"
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
+                  className={`h-2 rounded-full transition-all duration-300 ${index === activeSlide ? "w-6 bg-primary" : "w-2 bg-white/40"
+                    }`}
                 />
               ))}
             </div>
 
-            {/* Arrow controls */}
-            <div className="flex items-center gap-4">
+            {/* Arrows */}
+            <div className="flex items-center gap-2">
               <Button
                 variant="glass"
-                size="icon"
+                size="sm"
                 onClick={handlePrev}
-                aria-label="Previous slide"
+                className="backdrop-blur-md"
               >
-                <ChevronLeft size={20} />
+                <ChevronLeft size={18} />
               </Button>
+
               <Button
                 variant="glass"
-                size="icon"
+                size="sm"
                 onClick={handleNext}
-                aria-label="Next slide"
+                className="backdrop-blur-md"
               >
-                <ChevronRight size={20} />
+                <ChevronRight size={18} />
               </Button>
             </div>
           </div>

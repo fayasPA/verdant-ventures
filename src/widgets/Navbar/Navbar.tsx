@@ -6,18 +6,19 @@ import { cn } from "@/lib/utils";
 import { navigation } from "@/data/navigation";
 import { useUIStore } from "@/shared/store/uiStore";
 import { Button } from "@/components/ui/button";
+import { companyInfo } from "@/data/contactInfo";
 
 /**
  * Navbar - Premium transparent navbar that darkens on scroll
  */
 export const Navbar = () => {
   const location = useLocation();
-  const { 
-    isNavbarScrolled, 
-    setNavbarScrolled, 
-    isMobileMenuOpen, 
+  const {
+    isNavbarScrolled,
+    setNavbarScrolled,
+    isMobileMenuOpen,
     toggleMobileMenu,
-    closeMobileMenu 
+    closeMobileMenu
   } = useUIStore();
 
   // Handle scroll effect
@@ -51,30 +52,29 @@ export const Navbar = () => {
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <nav className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <Link 
-              to="/" 
+            <Link
+              to="/"
               className="flex items-center gap-2 group"
             >
-              <span className="text-2xl md:text-3xl font-display font-bold text-foreground group-hover:text-primary transition-colors">
+              <span className="text-2xl md:text-3xl font-display font-bold group-hover:text-primary transition-colors">
                 Green<span className="text-primary">Space</span>
+                {/* {companyInfo.name} */}
               </span>
             </Link>
 
             {/* Desktop Navigation */}
-            <ul className="hidden md:flex items-center gap-8">
+            <ul className="pl-16 hidden md:flex items-center justify-start w-full gap-8">
               {navigation.map((item) => (
                 <li key={item.label}>
-                  <Link
-                    to={item.href}
+                  <a
+                    href={item.href}
                     className={cn(
                       "text-sm font-medium animated-underline transition-colors",
-                      location.pathname === item.href
-                        ? "text-primary"
-                        : "text-muted-foreground hover:text-foreground"
+                      location.pathname === item.href ? "text-primary" : "text-foreground/80 hover:text-foreground"
                     )}
                   >
                     {item.label}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -124,18 +124,18 @@ export const Navbar = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 + index * 0.1 }}
                 >
-                  <Link
-                    to={item.href}
+                  <a
+                    href={item.href}
                     className={cn(
                       "text-3xl font-display font-semibold transition-colors",
                       location.pathname === item.href
                         ? "text-primary"
-                        : "text-muted-foreground hover:text-foreground"
+                        : "text-foreground/80 hover:text-foreground"
                     )}
                     onClick={closeMobileMenu}
                   >
                     {item.label}
-                  </Link>
+                  </a>
                 </motion.div>
               ))}
               <motion.div
